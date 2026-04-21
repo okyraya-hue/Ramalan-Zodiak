@@ -17,8 +17,10 @@ body{
   justify-content:center;
   align-items:center;
   height:100vh;
+  flex-direction:column;
 }
 
+/* CONTAINER */
 .container{
   width:90%;
   max-width:400px;
@@ -29,16 +31,27 @@ body{
   text-align:center;
 }
 
-/* LOGO */
+/* LOGO GLOW + FLOAT */
 .logo{
-  width:300px;
+  width:80px;
   margin-bottom:10px;
+  animation: float 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px #38bdf8)
+          drop-shadow(0 0 20px #6366f1);
+}
+
+/* ANIMASI */
+@keyframes float{
+  0%{transform:translateY(0px);}
+  50%{transform:translateY(-8px);}
+  100%{transform:translateY(0px);}
 }
 
 h1{
   margin-bottom:20px;
 }
 
+/* FORM */
 select, button{
   width:100%;
   padding:12px;
@@ -64,12 +77,25 @@ button:hover{
   transform:scale(1.05);
 }
 
+/* HASIL */
 .result{
   margin-top:20px;
   padding:15px;
   border-radius:12px;
   background:rgba(255,255,255,0.1);
   min-height:80px;
+}
+
+/* FOOTER */
+footer{
+  position:fixed;
+  bottom:0;
+  width:100%;
+  text-align:center;
+  padding:10px;
+  font-size:13px;
+  background:rgba(0,0,0,0.3);
+  backdrop-filter:blur(5px);
 }
 </style>
 </head>
@@ -81,7 +107,7 @@ button:hover{
   <!-- LOGO -->
   <img src="logo.png" alt="Logo" class="logo">
 
-  <h1>Ramalan Hari Ini</h1>
+  <h1>🔮 Ramalan Hari Ini</h1>
 
   <select id="zodiak">
     <option value="">Pilih Zodiak</option>
@@ -103,6 +129,10 @@ button:hover{
 
   <div class="result" id="hasil">Ramalan akan muncul di sini...</div>
 </div>
+
+<footer>
+  OkyRaya2026 🚀
+</footer>
 
 <script>
 const dataRamalan = {
